@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <p>< /Code Fellows ></p>
+    <div  sec:authorize="isAnonymous()">
+        <form action="/signin" method="GET">
+            <p><button  type="submit">Sign in</button></p>
+        </form>
+        <form action="/signup" method="GET">
+            <p><button type="submit" >Sign up</button></p>
+        </form>
+    </div>
+</body>
+</html>

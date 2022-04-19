@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link th:href="" rel=""/>
+
+</head>
+<body>
+
+<div >
+    <h1>SIGN UP</h1>
+    <form action="/signup" method="POST">
+
+                <label for="username">Username</label>
+                <input  type="text" name="username" id="username"  required />
+
+                <label for="firstName">First Name </label>
+                <input  type="text" name="firstName" id="firstName" required />
+
+                <label for="lastName">Last Name</label>
+                <input  type="text" name="lastName" id="lastName"   />
+
+
+                <label for="dateOfBirth">Date of Birth</label>
+                <input c type="date" name="dateOfBirth" id="dateOfBirth"   />
+
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required />
+
+                <label for="bio">Bio</label>
+                <input  type="bio" name="bio" id="bio" placeholder="Tell us about yourself.." required />
+
+                <ul>
+
+                    <input type="submit" value="Register" />
+                    <br>
+
+                </ul>
+        </form>
+        <ul >
+            <form action="/" method="GET">
+                <input type="submit" value="Home" />
+            </form><br>
+            <a  href="/siginin">i was signup</a>
+        </ul>
+</div>
+</body>
+</html>

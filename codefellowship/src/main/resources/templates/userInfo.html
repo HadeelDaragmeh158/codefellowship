@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>user informamtion</title>
+</head>
+<body>
+<header>
+
+            <ul>
+                <li>
+                    <form action="/" method="GET">
+                        <button type="submit">Home</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/logout-process" method="GET">
+                        <button type="submit">Sign out</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/myprofile" method="GET">
+                        <button type="submit">My profile</button>
+                    </form>
+                </li>
+            </ul>
+</header>
+<main>
+    <form  th:action="@{/users/{id}(id=${thisUser.id})}" method="GET" >
+            <div >
+                <h3 th:text="${thisUser.getFirstName()}"></h3>
+                <h4 th:text="${thisUser.getDateOfBirth()}"></h4>
+                <h4 th:text="${thisUser.getBio()}"></h4>
+            </div>
+    </form>
+
+    <ul th:each="post: ${posts}">
+            <div >
+                <p th:text="${#dates.format(post.createdAt, 'HH:mm')}"></p>
+
+                <h1  th:text="${post.body}"></h1>
+            </div>
+    </ul>
+    
+</main>
+</body>
+</html>
