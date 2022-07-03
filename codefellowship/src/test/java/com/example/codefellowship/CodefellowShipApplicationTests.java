@@ -1,4 +1,4 @@
-package com.appSecure.codefellowship;
+package com.example.codefellowship;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
