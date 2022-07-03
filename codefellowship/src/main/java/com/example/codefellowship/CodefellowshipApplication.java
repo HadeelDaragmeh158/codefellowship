@@ -1,4 +1,4 @@
-package com.appSecure.codefellowship;
+package com.example.codefellowship;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

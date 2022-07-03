@@ -1,37 +1,30 @@
-
-  <!doctype html>
-  <html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-  </head>
-  <body>
-        <h1>SIGN IN</h1>
-      <form action="/signin-process" method="POST">
+    <title>Login page </title>
+    <link rel="stylesheet" href="login.css">
 
-          <label for="username">Username</label>
-          <input  type="text" name="username" id="username"  required />
+</head>
+<body>
 
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password"  required />
+<br>
+<h1>Login</h1><br>
 
-          <ul >
-            <input  type="submit" value="Signin" />
-            <br>
-          </ul>
-      </form>
+<h2>please login to start a tour </h2>
 
-      <ul >
-        <form action="/" method="GET">
-          <input type="submit" value="Home" />
-        </form>
-        <br>
-        <a  href="/signup">signup</a>
-      </ul>
+<form id="logform" action="/perform_login" method="post" >
+    <fieldset>
+        <legend>Login</legend><br>
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username"><br><br><br>
 
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password"><br><br><br>
 
-  </body>
+    <input type="submit"><br><br>
+    </fieldset>
+</form>
+
+</body>
 </html>
