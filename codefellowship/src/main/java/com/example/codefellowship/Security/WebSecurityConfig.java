@@ -1,4 +1,5 @@
-package com.example.codefellowship.Security;
+package com.example.codefellowship.security;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
 @Configuration
 @EnableWebSecurity
@@ -19,34 +20,37 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     UserDetailsServiceImpl userDetailsService;
 
     @Bean
-    public PasswordEncoder getPasswordEncoder(){
-        PasswordEncoder encoder = new BCryptPasswordEncoder();
-        return encoder;
+    public PasswordEncoder getPasswordEncoder() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(getPasswordEncoder());
+    protected void configure(final AuthenticationManagerBuilder authManagerBuilder) throws Exception {
+        authManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(getPasswordEncoder());
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.cors().disable().csrf().disable()
+
+
+        @Override
+    protected void configure(final HttpSecurity http) throws Exception {
+        http
+                .cors().disable()
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/login*").permitAll()
                 .antMatchers("/").permitAll()
-                .antMatchers("/signup*").permitAll()
-                .antMatchers("/style.css").permitAll()
+                .antMatchers("/signup").permitAll()
+                .antMatchers("/login").permitAll()
+                .antMatchers("/css/style.css").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/perform_login")
-//                .defaultSuccessUrl("/")
-                .failureUrl("/login")
+                .defaultSuccessUrl("/")
                 .and()
                 .logout()
-                .logoutUrl("/perform_logout")
+                .logoutUrl("/preform_logout")
                 .logoutSuccessUrl("/login")
                 .deleteCookies("JSESSIONID");
     }
